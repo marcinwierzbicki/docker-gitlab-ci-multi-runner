@@ -4,8 +4,8 @@ gitlab-ci-multi-runner:
   volumes:
     - /srv/docker/gitlab-runner:/home/gitlab_ci_multi_runner/data
   environment:
-    - CI_SERVER_URL=https://git.stermedia.eu/ci/
-    - RUNNER_TOKEN=m6DUHFibtAEF6MTAnSQj
-    - RUNNER_DESCRIPTION=MW
+    - CI_SERVER_URL=
+    - RUNNER_TOKEN=
+    - RUNNER_DESCRIPTION=
     - RUNNER_EXECUTOR=shell
   restart: always
