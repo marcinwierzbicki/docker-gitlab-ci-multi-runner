@@ -1,10 +1,11 @@
-GitlabCIMultiRunner:
-  image: sameersbn/gitlab-ci-multi-runner:1.1.4-5
+gitlab-ci-multi-runner:
+  image: appstery/gitlab-ci-multi-runner
+  #build: .
   volumes:
     - /srv/docker/gitlab-runner:/home/gitlab_ci_multi_runner/data
   environment:
-    - CI_SERVER_URL=
-    - RUNNER_TOKEN=
-    - RUNNER_DESCRIPTION=
+    - CI_SERVER_URL=https://git.stermedia.eu/ci/
+    - RUNNER_TOKEN=m6DUHFibtAEF6MTAnSQj
+    - RUNNER_DESCRIPTION=MW
     - RUNNER_EXECUTOR=shell
   restart: always
