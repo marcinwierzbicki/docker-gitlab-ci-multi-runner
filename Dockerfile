@@ -18,6 +18,18 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv E1DD270288B4E60
  && sudo -HEu ${GITLAB_CI_MULTI_RUNNER_USER} ln -sf ${GITLAB_CI_MULTI_RUNNER_DATA_DIR}/.ssh ${GITLAB_CI_MULTI_RUNNER_HOME_DIR}/.ssh \
  && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get install -y apt-transport-https ca-certificates
+
+RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+RUN add-apt-repository "deb https://apt.dockerproject.org/repo ubuntu-trusty main"
+
+RUN apt-get update
+
+RUN apt-get install -y git
+RUN apt-get install -y openssh-client
+RUN apt-get install -y docker-engine
+
 COPY entrypoint.sh /sbin/entrypoint.sh
 RUN chmod 755 /sbin/entrypoint.sh
 
